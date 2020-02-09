@@ -78,6 +78,32 @@ const obj = {
 ```
 
 ### new 绑定
+在 JavaScript 中，构造函数本质就是个普通函数，但通过 new 关键字可以调用构造函数创建新的对象。而此时函数的内部的 this 就指向这个新创建的对象，这就是通过 new 来绑定 this。
+```js
+function Foo(str) {
+    console.log(this.str)
+}
+obj = new Foo('hello world')
+console.log(obj.str) // hello world
+```
 
+new 的实现流程：
+```js
+function _new(Con) {
+    // 获取参数
+    const args = Array.prototype.slice.call(arguments, 1)
+    // 创建中间对象，其原型指向 Con 的 prototype
+    const obj = Object.create(Con.prototype)
+    // 调用构造函数
+    const res = Con.call(obj, args)
+    // 如果构造函数调用返回结果为 object 就返回 res，否则返回中间对象 obj
+    return res instanceof Object ? res : obj
+}
+```
 
 ### 箭头函数绑定
+通常 this 的指向我们可以笼统概括为谁调用该函数，则 this 指向该对象。但箭头函数不同，它更像是函数内部的一个普通变量，主要通过作用域（词法作用域）来查找。
+其特点可以概括为：
+1. 箭头函数的 this 和函数所在作用域的 this 一致
+2. apply、call 和 bind 没法直接修改箭头函数的 this
+   
