@@ -61,3 +61,5 @@ export default {
 - 传入 plain/reactive/ref object, 返回只读的 reactive 对象
 
 ### watchEffect
+- 跟踪相应数据的变化，并返回取消监听数据变化的函数。
+- onInvalidate 在watch取消掉后，关掉还在进行中的 side effect
