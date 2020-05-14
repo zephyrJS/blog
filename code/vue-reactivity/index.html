@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <button id="btn">123</button>
+    <script src="./reactivity.js"></script>
+    <script>
+        const root = document.getElementById('app')
+        const btn = document.getElementById('btn')
+
+        const obj = reactive({
+            number: 1
+        })
+
+        const double = computed(() => obj.number * 2)
+
+        effect(()=> {
+            // 监听数据变化
+            console.log('数据变化', obj.number)
+            root.innerHTML = `数据变化： ${obj.number}, 乘 2：${double.value}`
+        })
+
+        btn.addEventListener('click',()=>{
+            obj.number += 1
+        }, false)
+    </script>
+</body>
+</html>

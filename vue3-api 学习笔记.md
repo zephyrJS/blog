@@ -63,3 +63,26 @@ export default {
 ### watchEffect
 - 跟踪相应数据的变化，并返回取消监听数据变化的函数。
 - onInvalidate 在watch取消掉后，关掉还在进行中的 side effect
+
+
+
+
+
+
+
+
+
+
+
+
+### Vue3 基础题
+- Vue3 中 setup 函数替代了 2.x 中的那些生命周期： beforeCreate、created
+- Vue3 对 Vue2 进行了那些改进
+  - 使用 Proxy 替代了 Object.defineProperty
+  - 新增 Composition Api
+  - 更好的原生支持
+  - 使用 ts 进行重写
+- 以下说法正确的是
+  - Vue3 会兼容旧版，Composition Api 是可选的
+  - 为了支持 IE 11，Vue3 将计划发布一个支持旧版观察者和新版 Proxy 的构建
+  - 不仅支持 ts，许多软件包将被解耦，使所有内容更加模块化
