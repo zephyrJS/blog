@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/code/DataStructuee/Stack/postprefix-exp.js"
+            "program": "${workspaceFolder}/code/DataStructuee/Tree/width.js"
         }
     ]
 }

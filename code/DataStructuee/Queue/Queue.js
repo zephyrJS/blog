@@ -4,11 +4,11 @@ class Queue {
     }
 
     enqueue(el) {
-        this.push(el)
+        this.queue.push(el)
     }
 
     dequeue() {
-        return this.shift()
+        return this.queue.shift()
     }
 
     head() {
@@ -23,11 +23,15 @@ class Queue {
         return this.queue.length
     }
 
-    isEmpyt() {
+    isEmpty() {
         return this.queue.length === 0
     }
 
     clear() {
         this.queue = []
     }
+}
+
+module.exports = {
+    Queue
 }
